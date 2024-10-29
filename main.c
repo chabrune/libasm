@@ -24,9 +24,43 @@ int main(int argc, char **argv)
     printf("strcmp : %d\n", strcmp("0x00", "0x00"));
     printf("ft_strcmp : %d\n\n", ft_strcmp("0x00", "0x00"));
 
-    //ft_write:
+    //ft_write
+    printf("--ft_write--\n");
     ft_write(1, "lol\n", 4);
-    write(1, "lol\n", 4);
+    ft_write(-1, "lol\n", 4);
+    printf("Error errno with bad fd : %d\n", errno);
 
+    //ft_read
+    printf("\n--ft_read--\n");
+    int fd = open("file.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Open fail");
+        return 1;
+    }
+    char buffer[256];
+    ssize_t ret = ft_read(fd, buffer, 256);
+    if (ret == -1)
+    {
+        perror("ft_read failed");
+        close(fd);
+        return 1;
+    }
+    buffer[ret] = '\0'; // Null-terminate the string
+    printf("Buffer read : %s\nReturn value : %zd\n", buffer, ret);
+    close(fd);
+
+    ret = ft_read(-1, buffer, 256);
+    printf("Error errno with bad fd : %d\nReturn value :  %zd\n", errno, ret);
+    char *src = "Bonjour";
+    char *dst = malloc(sizeof(char) * strlen(src) + 1);
+    int i = 0;
+    while(src[i])
+    {
+        dst[i] = src[i];
+        i++;
+    }
+    dst[i] = '\0';
+    printf("%s\n", dst);
     return 0;
 }

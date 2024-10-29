@@ -1,8 +1,5 @@
 global ft_strcmp
 
-;int ft_strcmp(const char *s1, const char *s2);
-;                         rdi,            rsi
-;                         al,              ah,
 ft_strcmp:
     xor rcx, rcx
 
@@ -10,18 +7,18 @@ ft_strcmp:
     mov al, [rdi + rcx]
     mov ah, [rsi + rcx]
     cmp al, ah
-    ja .greater ;
-    jb .bellow ;
+    ja .above
+    jb .below
     cmp al, 0
     je .equal
     inc rcx
     jmp .loop
 
-.greater:
+.above:
     mov rax, 1
     ret
 
-.bellow:
+.below:
     mov rax, -1
     ret
 
