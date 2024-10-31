@@ -52,15 +52,9 @@ int main(int argc, char **argv)
 
     ret = ft_read(-1, buffer, 256);
     printf("Error errno with bad fd : %d\nReturn value :  %zd\n", errno, ret);
+
     char *src = "Bonjour";
-    char *dst = malloc(sizeof(char) * strlen(src) + 1);
-    int i = 0;
-    while(src[i])
-    {
-        dst[i] = src[i];
-        i++;
-    }
-    dst[i] = '\0';
-    printf("%s\n", dst);
-    return 0;
+    char *dup1 = ft_strdup(src);
+    char *dup2 = strdup(src);
+    printf("ft_strdup : %s\nstrdup : %s", dup1, dup2);
 }
