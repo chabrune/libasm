@@ -1,4 +1,5 @@
 global ft_strlen
+
 ft_strlen:
     xor rcx, rcx
 

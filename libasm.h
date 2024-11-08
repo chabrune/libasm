@@ -15,5 +15,6 @@ extern ssize_t  ft_write(int  fd,  const  void *buf, size_t count);
 extern ssize_t ft_read(int fd, void *buf, size_t count);
 extern char *ft_strdup(const char *s);
 extern int	ft_atoi_base(char *str, char *base);
+int	ft_atoi_base_c(char *str, char *base);
 
 #endif  

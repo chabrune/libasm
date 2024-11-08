@@ -57,4 +57,7 @@ int main(int argc, char **argv)
     char *dup1 = ft_strdup(src);
     char *dup2 = strdup(src);
     printf("ft_strdup : %s\nstrdup : %s", dup1, dup2);
+	printf("\n%d\n", ft_atoi_base("256", "0123456789"));
+	// printf("%d", ft_atoi_base_c(" ---+--+1234ab567", "0123456789"));
+
 }
