@@ -39,7 +39,7 @@ make
 1. Incluez la bibliothèque dans votre projet
 2. Compilez avec les flags appropriés :
 ```bash
-gcc -L. -lasm votre_programme.c
+gcc -L. -lasm main.c
 ```
 
 ## ⚙️ Spécifications Techniques
